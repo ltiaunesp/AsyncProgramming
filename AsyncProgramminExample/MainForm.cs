@@ -95,11 +95,11 @@ namespace AsyncProgramminExample
         /// <param name="e">Dados do evento</param>
         private async void syncButton_Click(object sender, EventArgs e)
         {
-            cont1Label.ResetText();
+            cont1Label.ResetText(); //Limpa o texto das Labels
             cont2Label.ResetText();
-            vm.Terminado = false;
-            await counter1.StartCountingAsync(syncButton);
-            await counter2.StartCountingAsync(syncButton);
+            vm.Terminado = false; //Altera o estado da propriedade Terminado para que não seja possível iniciar uma nova contagem
+            await counter1.StartCountingAsync(syncButton); //Chama a função para iniciar a primeira contagem de maneira assíncrona, MAS com o uso da palavra await na frente da função a execução do próximo comando só é executado quando a função terminar(só é possível utilizar o await na frente da chamada pois a função retorna uma Task) 
+            await counter2.StartCountingAsync(syncButton); //Chama a função para iniciar a primeira contagem de maneira assíncrona, MAS com o uso da palavra await na frente da função a execução do próximo comando só é executado quando a função terminar(só é possível utilizar o await na frente da chamada pois a função retorna uma Task) 
         }
 
         /// <summary>
